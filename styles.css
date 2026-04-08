@@ -35,6 +35,7 @@ body {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
 }
 
 .grid-item:hover {

@@ -391,6 +391,30 @@ body {
     }
 }
 
+/* Logo badge central */
+.logo-badge {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background-color: #ff0000;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.logo-badge img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
 /* Animaciones */
 @keyframes fadeIn {
     from {

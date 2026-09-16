@@ -313,7 +313,7 @@ a {
     line-height: 1;
     white-space: nowrap;
     border: 2px solid transparent;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
 }
 
 .btn img {
@@ -332,9 +332,28 @@ a {
     color: var(--red);
 }
 
+.btn-on-red:hover,
+.btn-on-red:focus-visible {
+    background: var(--black);
+    color: var(--red);
+    border-color: var(--red);
+}
+
 .btn-on-black {
     background: var(--white);
     color: var(--black);
+}
+
+.btn-on-black:hover,
+.btn-on-black:focus-visible {
+    background: var(--black);
+    color: var(--red);
+    border-color: var(--red);
+}
+
+.btn-on-black:hover img,
+.btn-on-black:focus-visible img {
+    filter: invert(16%) sepia(97%) saturate(7492%) hue-rotate(1deg) brightness(97%) contrast(118%);
 }
 
 .btn-outline {
@@ -353,6 +372,7 @@ a {
     position: absolute;
     pointer-events: none;
     z-index: 1;
+    transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 /* GRUPOS */
@@ -364,6 +384,13 @@ a {
     padding: 40px 34px 40px 32px;
     display: flex;
     align-items: center;
+    transform-origin: center center;
+    transition: background-color 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-grupos:hover,
+.card-grupos:focus-within {
+    background: var(--black);
 }
 
 .card-grupos h2 {
@@ -396,15 +423,43 @@ a {
     display: flex;
     align-items: center;
     background: var(--red);
+    transform-origin: center center;
+    transition: background-color 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.card-salseo::before {
+.card-salseo:hover,
+.card-salseo:focus-within {
+    background: var(--black);
+}
+
+.card-salseo::before,
+.card-salseo::after {
     content: "";
     position: absolute;
     inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.card-salseo::before {
     background: url("assets/salseo.jpg") center / cover no-repeat;
     opacity: 0.8;
-    border-radius: inherit;
+}
+
+.card-salseo::after {
+    background: url("assets/salseo2.png") center / cover no-repeat;
+    opacity: 0;
+}
+
+.card-salseo:hover::before,
+.card-salseo:focus-within::before {
+    opacity: 0;
+}
+
+.card-salseo:hover::after,
+.card-salseo:focus-within::after {
+    opacity: 0.8;
 }
 
 .card-salseo h2 {
@@ -515,6 +570,40 @@ a {
     object-position: 70% 20%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    .card-grupos:hover,
+    .card-grupos:focus-within,
+    .card-salseo:hover,
+    .card-salseo:focus-within {
+        transform: scale(0.985);
+    }
+
+    .card-pisos:hover .art-llaves,
+    .card-pisos:focus-within .art-llaves {
+        transform: rotate(-18.9deg) translate(-3.24%, -16.29%);
+    }
+
+    .card-viajes:hover .art-maleta,
+    .card-viajes:focus-within .art-maleta {
+        transform: translateX(-35%) rotate(2.89deg) translateY(8%);
+    }
+
+    .card-tablon:hover .art-notas,
+    .card-tablon:focus-within .art-notas {
+        transform: scale(1.08) rotate(-6deg);
+    }
+
+    .card-logo:hover img,
+    .card-logo:focus-within img {
+        transform: scale(1.06) rotate(-8deg);
+    }
+
+    .multi-poster:hover img,
+    .multi-poster:focus-within img {
+        transform: scale(1.06);
+    }
+}
+
 /* LOGO */
 .card-logo {
     width: 200px;
@@ -531,6 +620,7 @@ a {
 .card-logo img {
     width: 158px;
     height: 158px;
+    transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 /* TABLÓN */
@@ -596,6 +686,7 @@ a {
     margin-top: -44%;
     object-fit: cover;
     object-position: center 42%;
+    transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .multi-actions {
@@ -856,6 +947,18 @@ a {
         transform: none;
     }
 
+    @media (prefers-reduced-motion: no-preference) {
+        .card-pisos:hover .art-llaves,
+        .card-pisos:focus-within .art-llaves {
+            transform: rotate(-37.5deg) translate(-3.24%, -16.29%);
+        }
+
+        .card-viajes:hover .art-maleta,
+        .card-viajes:focus-within .art-maleta {
+            transform: rotate(2.89deg) translateY(8%);
+        }
+    }
+
     .card-logo {
         padding: 12px;
     }
@@ -1098,6 +1201,13 @@ a {
         right: -24px;
         bottom: -24px;
         object-fit: contain;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .card-pisos:hover .art-llaves,
+        .card-pisos:focus-within .art-llaves {
+            transform: rotate(-43.5deg) translate(-3.24%, -16.29%);
+        }
     }
 
     .card-logo {

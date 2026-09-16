@@ -81,10 +81,11 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    height: min(28vh, 280px);
+    height: 52vh;
     background: linear-gradient(
         180deg,
         rgb(229 229 229 / 0%) 0%,
+        rgb(229 229 229 / 12%) 35%,
         var(--bg) 100%
     );
     pointer-events: none;
@@ -226,7 +227,7 @@ a {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: var(--pad) var(--pad) 0;
+    padding: var(--pad);
     display: flex;
     flex-direction: column;
     gap: var(--gap);
@@ -832,7 +833,7 @@ a {
             "viajes logo   pisos"
             "viajes tablon tablon"
             "multi  multi  multi";
-        padding-bottom: 15px;
+        padding-bottom: var(--pad);
     }
 
     .card-grupos { grid-area: grupos; }
@@ -1104,7 +1105,7 @@ a {
             "viajes logo   logo   pisos"
             "viajes tablon tablon tablon"
             "multi  multi  multi  multi";
-        padding-bottom: 12px;
+        padding-bottom: var(--pad);
     }
 
     .card-grupos,

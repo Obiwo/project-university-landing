@@ -234,15 +234,9 @@ a {
     background: var(--bg);
 }
 
-.fila-01,
-.fila-02,
-.col-derecha,
-.superior {
+.fila-01 {
     display: flex;
     gap: var(--gap);
-}
-
-.fila-01 {
     height: 290px;
     flex-shrink: 0;
 }
@@ -250,19 +244,18 @@ a {
 .fila-02 {
     flex: 1;
     min-height: 0;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 200px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: 200px minmax(0, 1fr);
+    grid-template-areas:
+        "pisos viajes logo tablon tablon"
+        "pisos viajes multi  multi  multi";
+    gap: var(--gap);
 }
 
-.col-derecha {
-    flex: 1;
-    flex-direction: column;
-    min-width: 0;
-}
-
+.col-derecha,
 .superior {
-    height: 200px;
-    flex-shrink: 0;
-    min-width: 0;
+    display: contents;
 }
 
 .card {
@@ -278,6 +271,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .card h2 {
@@ -478,13 +473,11 @@ a {
 
 /* PISOS */
 .card-pisos {
-    width: 20.3%;
-    max-width: 284px;
-    min-width: 220px;
-    flex: 0 1 284px;
+    grid-area: pisos;
+    min-width: 0;
     background: var(--black);
     color: var(--white);
-    padding: 50px 32px 0;
+    padding: 50px clamp(16px, 2.2vw, 32px) 0;
 }
 
 .card-pisos .eyebrow {
@@ -493,7 +486,7 @@ a {
 }
 
 .card-pisos h2 {
-    font-size: 56px;
+    font-size: clamp(40px, 3.9vw, 56px);
     margin-top: 2px;
 }
 
@@ -504,6 +497,8 @@ a {
 
 .card-pisos .btn {
     margin-top: 61px;
+    min-width: 0;
+    width: min(181px, 100%);
 }
 
 .art-llaves {
@@ -521,17 +516,15 @@ a {
 
 /* VIAJES */
 .card-viajes {
-    width: 20.3%;
-    max-width: 284px;
-    min-width: 220px;
-    flex: 0 1 284px;
+    grid-area: viajes;
+    min-width: 0;
     background: var(--black);
     color: var(--white);
-    padding: 50px 32px 0;
+    padding: 50px clamp(16px, 2.2vw, 32px) 0;
 }
 
 .what-next {
-    width: 153px;
+    width: min(153px, 100%);
     height: 29px;
     overflow: hidden;
     position: relative;
@@ -548,7 +541,7 @@ a {
 }
 
 .card-viajes h2 {
-    font-size: 56px;
+    font-size: clamp(40px, 3.9vw, 56px);
     margin-top: 2px;
 }
 
@@ -559,6 +552,8 @@ a {
 
 .card-viajes .btn {
     margin-top: 61px;
+    min-width: 0;
+    width: min(181px, 100%);
 }
 
 .art-maleta {
@@ -607,6 +602,7 @@ a {
 
 /* LOGO */
 .card-logo {
+    grid-area: logo;
     width: 200px;
     height: 200px;
     flex-shrink: 0;
@@ -626,7 +622,7 @@ a {
 
 /* TABLÓN */
 .card-tablon {
-    flex: 1;
+    grid-area: tablon;
     min-width: 0;
     background: var(--red);
     color: var(--white);
@@ -660,7 +656,7 @@ a {
 
 /* MULTIFUNCIÓN */
 .card-multi {
-    flex: 1;
+    grid-area: multi;
     min-width: 0;
     background: var(--black);
     padding: 28px 32px;
@@ -739,14 +735,6 @@ a {
 @media (min-width: 1440px) {
     .hero-title {
         font-size: 78px;
-    }
-
-    .card-pisos,
-    .card-viajes {
-        width: 284px;
-        min-width: 284px;
-        max-width: 284px;
-        flex: 0 0 284px;
     }
 
     .multi-poster {

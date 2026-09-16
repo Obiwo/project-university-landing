@@ -1,451 +1,1153 @@
+:root {
+    --red: #ff0100;
+    --black: #000000;
+    --white: #ffffff;
+    --bg: #e5e5e5;
+    --radius: 24px;
+    --gap: 20px;
+    --pad: 20px;
+    --font: "Inter", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+html,
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #ffffff;
-    padding: 0;
-    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+picture,
+video,
+canvas {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 8px;
-    width: 100%;
-    height: 100vh;
-    padding: 8px;
-}
-
-.grid-item {
-    padding: 30px;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    background: var(--bg);
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--red);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 48px 24px 56px;
+}
+
+.hero-logo {
+    width: 116px;
+    height: 116px;
+    object-fit: contain;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    font-size: clamp(42px, 5.4vw, 78px);
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    line-height: 1.078;
+    max-width: 1201px;
+}
+
+.br-narrow {
+    display: none;
+}
+
+.hero-last {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.18em;
+    white-space: nowrap;
+}
+
+.hero-flecha {
+    width: 0.86em;
+    height: 0.8em;
+    flex-shrink: 0;
+}
+
+.hero-smiley {
+    width: 1.06em;
+    height: 0.94em;
+    flex-shrink: 0;
+}
+
+.hero-lead {
+    position: relative;
+    z-index: 2;
+    margin-top: 28px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 1.25;
+    max-width: 559px;
+}
+
+.hero-scroll {
+    position: relative;
+    z-index: 2;
+    margin-top: 48px;
+    width: 38px;
+    height: 38px;
+    animation: hero-bounce 1.8s ease-in-out infinite;
+}
+
+.hero-scroll img {
+    width: 38px;
+    height: 38px;
+}
+
+@keyframes hero-bounce {
+    0%,
+    100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+.hero-deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+.hero-keys {
+    left: 2%;
+    top: 18%;
+    width: min(28vw, 380px);
+    transform-origin: 32% 10%;
+    transform: rotate(-31.3deg);
+    animation: hero-keys-move 2.8s ease-in-out infinite alternate;
+}
+
+.hero-wa {
+    right: 14%;
+    top: 16%;
+    width: min(16vw, 228px);
+    transform-origin: center center;
+    animation: hero-wa-move 2.4s ease-in-out 0.35s infinite alternate;
+}
+
+.hero-bag {
+    right: 4%;
+    top: 42%;
+    width: min(22vw, 320px);
+    object-fit: contain;
+    transform-origin: 50% 80%;
+    animation: hero-bag-move 3.2s ease-in-out 0.7s infinite alternate;
+}
+
+@keyframes hero-keys-move {
+    from { transform: rotate(-31.3deg) translate(0, 0); }
+    to { transform: rotate(-38.8deg) translate(-3.24%, -16.29%); }
+}
+
+@keyframes hero-wa-move {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.094) translate(-1%, 10%); }
+}
+
+@keyframes hero-bag-move {
+    from { transform: rotate(0deg) translate(0, 0); }
+    to { transform: rotate(2.89deg) translate(0, 8%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-deco,
+    .hero-scroll {
+        animation: none;
+    }
+}
+
+.bento {
+    flex: 1;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: var(--pad) var(--pad) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    background: var(--bg);
+}
+
+.fila-01,
+.fila-02,
+.col-derecha,
+.superior {
+    display: flex;
+    gap: var(--gap);
+}
+
+.fila-01 {
+    height: 290px;
+    flex-shrink: 0;
+}
+
+.fila-02 {
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+}
+
+.col-derecha {
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.superior {
+    height: 200px;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.card {
     position: relative;
     overflow: hidden;
+    border-radius: var(--radius);
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 16px;
 }
 
-.grid-item:hover {
-    transform: scale(1.02);
+.card-copy {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.grid-item h2 {
-    font-size: 32px;
-    font-weight: 500;
-    z-index: 1;
+.card h2 {
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.08em;
+}
+
+.subtitle {
+    font-weight: 600;
+    letter-spacing: -0.08em;
     line-height: 1.2;
 }
 
-/* Colores de las cajas */
-.black-box {
-    background-color: #1a1a1a;
-    color: #ffffff;
+.eyebrow {
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 1.2;
 }
 
-.red-box {
-    background-color: #ff0000;
-    color: #1a1a1a;
-}
-
-.gray-box {
-    background-color: #e0e0e0;
-    color: #1a1a1a;
-}
-
-/* Layout del grid
-   Col:  1       2       3       4
-   Row1: [  project-university  ] [   noticias (tall)   ]
-   Row2: [pisos] [whatsapp]        [descuentos] [viajes]
-   Row3: [ puc ] [     not-found             ]
-*/
-
-.project-university {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-}
-
-.noticias {
-    grid-column: 3 / 5;
-    grid-row: 1 / 3;
-    justify-content: center;
+.btn {
+    display: inline-flex;
     align-items: center;
-}
-
-.pisos {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-
-.whatsapp {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
-.descuentos {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-}
-
-.viajes {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-}
-
-.puc {
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
     justify-content: center;
-    align-items: center;
-}
-
-.not-found {
-    grid-column: 4 / 5;
-    grid-row: 3 / 4;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Iconos y elementos específicos */
-.icon-pisos {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.icon-pisos .line {
-    width: 80px;
-    height: 12px;
-    background-color: #1a1a1a;
-}
-
-.icon-whatsapp {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 120px;
-    color: #1a1a1a;
-}
-
-.noticias {
-    position: relative;
-}
-
-.noticias-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.quote-marks {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.quote-left {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    font-size: 200px;
-    color: #ff0000;
-    font-weight: bold;
-    line-height: 0.8;
-    font-family: Georgia, serif;
-    opacity: 0.9;
-}
-
-.quote-right {
-    position: absolute;
-    bottom: 0px;
-    right: 30px;
-    font-size: 200px;
-    color: #ff0000;
-    font-weight: bold;
-    line-height: 0.8;
-    font-family: Georgia, serif;
-    opacity: 0.9;
-}
-
-.noticias h2 {
-    font-size: 56px;
-    font-weight: 600;
-    z-index: 2;
-    margin-bottom: 20px;
-}
-
-.news-lines {
-    display: flex;
-    flex-direction: column;
     gap: 8px;
-    z-index: 2;
-    opacity: 0.6;
-}
-
-.news-line {
-    height: 3px;
-    background-color: #1a1a1a;
-    width: 180px;
-}
-
-.news-line.short {
-    width: 120px;
-}
-
-.puc-text {
-    font-size: 120px;
-    font-weight: 600;
-}
-
-.percent-icon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 140px;
-    font-weight: bold;
-    color: #1a1a1a;
-    line-height: 1;
-}
-
-.icon-plane {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    width: 100px;
-    height: 100px;
-    transform: rotate(-45deg);
-}
-
-.not-found-text {
-    font-size: 60px;
+    height: 54px;
+    min-width: 181px;
+    padding: 8px 31px;
+    border-radius: 32px;
+    font-family: inherit;
+    font-size: 23.25px;
     font-weight: 700;
+    letter-spacing: -0.08em;
     line-height: 1;
-    text-align: center;
+    white-space: nowrap;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.not-found-text span {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 2px;
+.btn img {
+    width: 22px;
+    height: 22px;
+    transform: rotate(180deg);
+    flex-shrink: 0;
 }
 
-/* Logo badge — posicionado en el cruce real de gaps:
-   col 2/3 = left 50%, row 1/2 = top 33.3% */
-.logo-badge {
-    position: fixed;
-    top: calc(33.333% + 4px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    background-color: #ff0000;
-    border-radius: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+.btn:hover {
+    transform: scale(1.03);
+}
+
+.btn-on-red {
+    background: var(--white);
+    color: var(--red);
+}
+
+.btn-on-black {
+    background: var(--white);
+    color: var(--black);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--red);
+    width: 100%;
+    min-width: 0;
+}
+
+.btn-outline:hover {
+    background: var(--red);
+}
+
+.art {
+    position: absolute;
     pointer-events: none;
+    z-index: 1;
 }
 
-.logo-badge img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
+/* GRUPOS */
+.card-grupos {
+    flex: 1.59;
+    min-width: 0;
+    background: var(--red);
+    color: var(--white);
+    padding: 40px 34px 40px 32px;
+    display: flex;
+    align-items: center;
 }
 
-/* Responsive - Mobile */
-@media (max-width: 768px) {
-    .logo-badge {
+.card-grupos h2 {
+    font-size: 64px;
+}
+
+.card-grupos .subtitle {
+    font-size: 28px;
+    margin-top: 2px;
+}
+
+.card-grupos .btn {
+    margin-top: 45px;
+}
+
+.art-whatsapp {
+    width: 311px;
+    height: 311px;
+    right: 0;
+    top: -16px;
+    object-fit: cover;
+}
+
+/* SALSEO */
+.card-salseo {
+    flex: 1;
+    min-width: 0;
+    color: var(--white);
+    padding: 40px 34px 40px 32px;
+    display: flex;
+    align-items: center;
+    background: var(--red);
+}
+
+.card-salseo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("assets/salseo.jpg") center / cover no-repeat;
+    opacity: 0.8;
+    border-radius: inherit;
+}
+
+.card-salseo h2 {
+    font-size: 56px;
+}
+
+.card-salseo .subtitle {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.card-salseo .btn {
+    margin-top: 38px;
+}
+
+/* PISOS */
+.card-pisos {
+    width: 20.3%;
+    max-width: 284px;
+    min-width: 220px;
+    flex: 0 1 284px;
+    background: var(--black);
+    color: var(--white);
+    padding: 50px 32px 0;
+}
+
+.card-pisos .eyebrow {
+    color: var(--red);
+    font-size: 16px;
+}
+
+.card-pisos h2 {
+    font-size: 56px;
+    margin-top: 2px;
+}
+
+.card-pisos .subtitle {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.card-pisos .btn {
+    margin-top: 61px;
+}
+
+.art-llaves {
+    width: 281px;
+    height: 499px;
+    left: 9px;
+    top: 243px;
+    object-fit: cover;
+    transform: rotate(-11.4deg);
+    transform-origin: center top;
+}
+
+/* VIAJES */
+.card-viajes {
+    width: 20.3%;
+    max-width: 284px;
+    min-width: 220px;
+    flex: 0 1 284px;
+    background: var(--black);
+    color: var(--white);
+    padding: 50px 32px 0;
+}
+
+.what-next {
+    width: 153px;
+    height: 29px;
+    overflow: hidden;
+    position: relative;
+}
+
+.what-next img {
+    position: absolute;
+    height: 411.51%;
+    width: 136.44%;
+    left: -19.26%;
+    top: -146.22%;
+    max-width: none;
+    object-fit: cover;
+}
+
+.card-viajes h2 {
+    font-size: 56px;
+    margin-top: 2px;
+}
+
+.card-viajes .subtitle {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.card-viajes .btn {
+    margin-top: 61px;
+}
+
+.art-maleta {
+    width: 263px;
+    height: 314px;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-35%);
+    object-fit: cover;
+    object-position: 70% 20%;
+}
+
+/* LOGO */
+.card-logo {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: default;
+}
+
+.card-logo img {
+    width: 158px;
+    height: 158px;
+}
+
+/* TABLÓN */
+.card-tablon {
+    flex: 1;
+    min-width: 0;
+    background: var(--red);
+    color: var(--white);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+}
+
+.card-tablon .btn {
+    flex-shrink: 0;
+}
+
+.card-tablon .eyebrow {
+    font-size: 16px;
+}
+
+.card-tablon h2 {
+    font-size: 56px;
+}
+
+.card-tablon .subtitle {
+    font-size: 20px;
+}
+
+.card-tablon .art-notas {
+    display: none;
+}
+
+/* MULTIFUNCIÓN */
+.card-multi {
+    flex: 1;
+    min-width: 0;
+    background: var(--black);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 40px);
+    cursor: default;
+}
+
+.multi-poster {
+    width: min(341px, 48%);
+    height: 100%;
+    max-height: 360px;
+    aspect-ratio: 341 / 360;
+    border-radius: var(--radius);
+    overflow: hidden;
+    flex: 1 1 220px;
+    background: var(--white);
+}
+
+.multi-poster img {
+    width: 100%;
+    height: 226%;
+    margin-top: -44%;
+    object-fit: cover;
+    object-position: center 42%;
+}
+
+.multi-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(12px, 2.4vw, 34px);
+    flex: 1 1 200px;
+    min-width: 0;
+    align-items: stretch;
+}
+
+.multi-actions .btn {
+    width: 100%;
+    max-width: 282px;
+}
+
+/* FOOTER */
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 20px;
+    padding: 0 57px 0 57px;
+    background: var(--red);
+    color: var(--black);
+    flex-shrink: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 57px;
+    align-items: center;
+}
+
+.site-footer a,
+.site-footer p {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    white-space: nowrap;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1440px) {
+    .hero-title {
+        font-size: 78px;
+    }
+
+    .card-pisos,
+    .card-viajes {
+        width: 284px;
+        min-width: 284px;
+        max-width: 284px;
+        flex: 0 0 284px;
+    }
+
+    .multi-poster {
+        width: 341px;
+        flex: 0 0 341px;
+        height: 360px;
+    }
+}
+
+/* ========== TABLET ========== */
+@media (max-width: 1139px) {
+    :root {
+        --gap: 15px;
+        --pad: 24px;
+        --radius: 24px;
+    }
+
+    .hero {
+        padding: 98px 24px 80px;
+        justify-content: flex-start;
+    }
+
+    .hero-logo {
+        margin-bottom: 64px;
+    }
+
+    .hero-title {
+        font-size: 71px;
+        letter-spacing: -0.08em;
+    }
+
+    .br-narrow {
+        display: block;
+    }
+
+    .br-wide {
         display: none;
     }
 
-    body {
-        padding: 0;
+    .hero-lead {
+        margin-top: 52px;
+        font-size: 22px;
+        max-width: 406px;
     }
 
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        height: auto;
-        min-height: 100vh;
-        gap: 4px;
-        padding: 4px;
+    .hero-scroll {
+        margin-top: 72px;
     }
 
-    .grid-item {
-        padding: 20px;
-        min-height: 0;
+    .hero-keys {
+        left: -14%;
+        top: 5%;
+        width: min(48vw, 368px);
     }
 
-    .grid-item h2 {
-        font-size: 20px;
+    .hero-wa {
+        right: 7%;
+        left: auto;
+        top: 13%;
+        width: min(26vw, 197px);
     }
 
-    .project-university {
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        min-height: 18vh;
+    .hero-bag {
+        right: -8%;
+        left: auto;
+        top: 36%;
+        width: min(40vw, 306px);
     }
 
-    .noticias {
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        min-height: 25vh;
+    .fila-01,
+    .fila-02,
+    .col-derecha,
+    .superior {
+        display: contents;
     }
 
-    .pisos {
-        grid-column: 1 / 2;
-        grid-row: 3 / 4;
-        min-height: 15vh;
+    .bento {
+        display: grid;
+        grid-template-columns: 270fr 165fr 270fr;
+        grid-template-rows: 241px 259px 154px 257px 194px;
+        grid-template-areas:
+            "grupos grupos grupos"
+            "salseo salseo pisos"
+            "viajes logo   pisos"
+            "viajes tablon tablon"
+            "multi  multi  multi";
+        padding-bottom: 15px;
     }
 
-    .whatsapp {
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
-        min-height: 15vh;
+    .card-grupos { grid-area: grupos; }
+    .card-salseo { grid-area: salseo; }
+    .card-pisos { grid-area: pisos; width: auto; }
+    .card-viajes { grid-area: viajes; width: auto; }
+    .card-logo { grid-area: logo; width: auto; height: auto; }
+    .card-tablon { grid-area: tablon; }
+    .card-multi { grid-area: multi; }
+
+    .card-grupos,
+    .card-salseo {
+        padding: 40px 34px 40px 32px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
     }
 
-    .descuentos {
-        grid-column: 1 / 2;
-        grid-row: 4 / 5;
-        min-height: 15vh;
+    .card-grupos h2,
+    .card-salseo h2,
+    .card-tablon h2 {
+        font-size: 56px;
     }
 
-    .viajes {
-        grid-column: 2 / 3;
-        grid-row: 4 / 5;
-        min-height: 15vh;
+    .card-grupos .subtitle {
+        font-size: 22px;
     }
 
-    .puc {
-        grid-column: 1 / 2;
-        grid-row: 5 / 6;
-        min-height: 18vh;
+    .card-grupos .btn,
+    .card-salseo .btn,
+    .card-pisos .btn,
+    .card-viajes .btn,
+    .card-tablon .btn {
+        height: 38px;
+        min-width: 134px;
+        width: 134px;
+        padding: 8px 12px;
+        font-size: 18px;
+        margin-top: 32px;
+        border-radius: 47px;
     }
 
-    .not-found {
-        grid-column: 2 / 3;
-        grid-row: 5 / 6;
-        min-height: 18vh;
+    .card-grupos .btn {
+        margin-top: 45px;
     }
 
-    .icon-pisos {
-        bottom: 15px;
-        right: 15px;
+    .card-salseo .btn {
+        margin-top: 38px;
     }
 
-    .icon-pisos .line {
-        width: 50px;
-        height: 8px;
+    .btn img {
+        width: 19px;
+        height: 19px;
     }
 
-    .icon-whatsapp {
-        width: 60px;
-        height: 60px;
-        bottom: 15px;
+    .art-whatsapp {
+        width: 262px;
+        height: 262px;
+        right: -14px;
+        top: -45px;
     }
 
-    .quote-left {
-        font-size: 120px;
-        top: 10px;
-        left: 15px;
+    .card-pisos,
+    .card-viajes {
+        padding: 40px 32px 0;
     }
 
-    .quote-right {
-        font-size: 120px;
+    .card-pisos .eyebrow,
+    .card-tablon .eyebrow {
+        font-size: 13px;
+    }
+
+    .card-pisos h2,
+    .card-viajes h2 {
+        font-size: 48px;
+    }
+
+    .card-pisos .subtitle,
+    .card-viajes .subtitle,
+    .card-salseo .subtitle,
+    .card-tablon .subtitle {
+        font-size: 18px;
+    }
+
+    .card-pisos .btn,
+    .card-viajes .btn {
+        margin-top: 31px;
+    }
+
+    .art-llaves {
+        width: 184px;
+        height: 328px;
+        left: 39px;
+        top: 157px;
+        transform: rotate(-30deg);
+    }
+
+    .what-next {
+        width: 127px;
+        height: 24px;
+    }
+
+    .art-maleta {
+        width: 197px;
+        height: 236px;
+        left: auto;
+        right: -20px;
         bottom: -10px;
-        right: 15px;
+        transform: none;
     }
 
-    .noticias h2 {
-        font-size: 32px;
-        margin-bottom: 12px;
+    .card-logo {
+        padding: 12px;
     }
 
-    .news-lines {
+    .card-logo img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .card-tablon {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 24px 32px;
+        gap: 0;
+    }
+
+    .card-tablon .btn {
+        margin-top: 24px;
+    }
+
+    .card-tablon .art-notas {
+        display: block;
+        width: 201px;
+        height: 201px;
+        right: -20px;
+        top: 30px;
+        object-fit: cover;
+    }
+
+    .card-multi {
+        gap: 40px;
+        padding: 10px 32px;
+        justify-content: center;
+    }
+
+    .multi-poster {
+        width: 178px;
+        height: 174px;
+        border-radius: 24px;
+    }
+
+    .multi-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 401px;
+    }
+
+    .multi-actions .btn {
+        width: 100%;
+        max-width: none;
+        height: 43px;
+        font-size: 19px;
+    }
+
+    .site-footer {
+        height: 18px;
+        padding: 0 28px 0 28px;
+        gap: 24px;
+    }
+
+    .footer-links {
+        gap: 30px;
+    }
+
+    .site-footer a {
+        font-size: 9px;
+    }
+
+    .site-footer p {
+        font-size: 5px;
+    }
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 767px) {
+    :root {
+        --gap: 12px;
+        --pad: 16px;
+        --radius: 16px;
+    }
+
+    .hero {
+        padding: 82px 16px 40px;
+    }
+
+    .hero-logo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 38px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+        letter-spacing: -0.08em;
+        max-width: 100%;
+    }
+
+    .hero-lead {
+        margin-top: 32px;
+        font-size: 13px;
+        max-width: 244px;
+    }
+
+    .hero-scroll {
+        margin-top: 36px;
+        width: 19px;
+        height: 19px;
+    }
+
+    .hero-keys {
+        left: -9%;
+        top: 22%;
+        width: min(46vw, 184px);
+    }
+
+    .hero-wa {
+        right: -2%;
+        left: auto;
+        top: 15%;
+        width: min(32vw, 129px);
+    }
+
+    .hero-bag {
+        right: -14%;
+        left: auto;
+        top: 34%;
+        width: min(54vw, 217px);
+    }
+
+    .hero-scroll img {
+        width: 19px;
+        height: 19px;
+    }
+
+    .bento {
+        grid-template-columns: 135fr 75fr 1fr 135fr;
+        grid-template-rows: 181px 154px 75px 154px 132px;
+        grid-template-areas:
+            "grupos grupos grupos grupos"
+            "salseo salseo salseo pisos"
+            "viajes logo   logo   pisos"
+            "viajes tablon tablon tablon"
+            "multi  multi  multi  multi";
+        padding-bottom: 12px;
+    }
+
+    .card-grupos,
+    .card-salseo,
+    .card-pisos,
+    .card-viajes,
+    .card-tablon {
+        padding: 16px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .card-grupos h2 {
+        font-size: 36px;
+    }
+
+    .card-salseo h2,
+    .card-tablon h2,
+    .card-pisos h2,
+    .card-viajes h2 {
+        font-size: 24px;
+    }
+
+    .card-grupos .subtitle {
+        font-size: 12px;
+    }
+
+    .card-salseo .subtitle,
+    .card-tablon .subtitle,
+    .card-pisos .subtitle,
+    .card-viajes .subtitle {
+        font-size: 10px;
+    }
+
+    .card-pisos .eyebrow {
+        font-size: 7px;
+    }
+
+    .card-tablon .eyebrow {
+        display: none;
+    }
+
+    .card-grupos .btn,
+    .card-salseo .btn,
+    .card-pisos .btn,
+    .card-viajes .btn,
+    .card-tablon .btn {
+        height: 25px;
+        min-width: 89px;
+        width: 89px;
+        padding: 4px 8px;
+        font-size: 11px;
+        margin-top: 14px;
+        border-radius: 32px;
         gap: 6px;
     }
 
-    .news-line {
-        height: 2px;
-        width: 100px;
+    .card-grupos .btn {
+        margin-top: 20px;
     }
 
-    .news-line.short {
-        width: 60px;
+    .btn img {
+        width: 13px;
+        height: 13px;
     }
 
-    .puc-text {
-        font-size: 60px;
+    .art-whatsapp {
+        width: 164px;
+        height: 164px;
+        right: 5px;
+        top: 17px;
     }
 
-    .percent-icon {
-        font-size: 80px;
-        bottom: 10px;
-        right: 10px;
+    .art-llaves {
+        width: 89px;
+        height: 156px;
+        left: 40px;
+        top: 108px;
+        transform: rotate(-36deg);
     }
 
-    .icon-plane {
-        width: 60px;
-        height: 60px;
-        bottom: 15px;
-        right: 15px;
+    .what-next {
+        width: 65px;
+        height: 12px;
     }
 
-    .not-found-text {
-        font-size: 40px;
+    .art-maleta {
+        width: 117px;
+        height: 140px;
+        right: -24px;
+        bottom: -24px;
+        object-fit: contain;
     }
 
-    .not-found-text span {
-        font-size: 12px;
+    .card-logo {
+        padding: 9px;
+    }
+
+    .card-logo img {
+        width: 57px;
+        height: 57px;
+    }
+
+    .card-tablon .art-notas {
+        width: 93px;
+        height: 117px;
+        right: -8px;
+        top: -10px;
+    }
+
+    .card-multi {
+        padding: 12px 20px;
+        gap: 16px;
+    }
+
+    .multi-poster {
+        width: 108px;
+        height: 108px;
+        border-radius: 16px;
+        flex-shrink: 0;
+    }
+
+    .multi-actions {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        max-width: none;
+        flex: 1;
+    }
+
+    .multi-actions .btn {
+        height: 27px;
+        font-size: 11px;
+        border-width: 1px;
+        padding: 4px 8px;
+        border-radius: 16px;
+        gap: 4px;
+    }
+
+    .multi-actions .btn img {
+        width: 11px;
+        height: 11px;
+    }
+
+    .site-footer {
+        height: 18px;
+        padding: 0 16px;
+        gap: 8px;
+    }
+
+    .footer-links {
+        gap: 17px;
+        min-width: 0;
+    }
+
+    .site-footer a {
+        font-size: 7px;
+    }
+
+    .site-footer p {
+        font-size: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
+@media (max-width: 380px) {
+    .site-footer p {
+        display: none;
     }
 }
-
-.grid-item {
-    animation: fadeIn 0.4s ease forwards;
-}
-
-.grid-item:nth-child(1) { animation-delay: 0.05s; }
-.grid-item:nth-child(2) { animation-delay: 0.1s; }
-.grid-item:nth-child(3) { animation-delay: 0.15s; }
-.grid-item:nth-child(4) { animation-delay: 0.2s; }
-.grid-item:nth-child(5) { animation-delay: 0.25s; }
-.grid-item:nth-child(6) { animation-delay: 0.3s; }
-.grid-item:nth-child(7) { animation-delay: 0.35s; }
-.grid-item:nth-child(8) { animation-delay: 0.4s; }

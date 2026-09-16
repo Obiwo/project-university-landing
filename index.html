@@ -3,75 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey - Portal Universitario</title>
+    <title>Project University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="grid-container">
-        <!-- Fila 1: dos secciones grandes -->
-        <div class="grid-item black-box project-university" data-section="project-university">
-            <h2>Project<br>University</h2>
-        </div>
+    <main class="page">
+        <header class="hero">
+            <img class="hero-logo" src="assets/logo-white.png" alt="Project University" width="116" height="116">
 
-        <div class="grid-item gray-box noticias" data-section="noticias">
-            <div class="noticias-content">
-                <div class="quote-marks">
-                    <span class="quote-left">"</span>
-                    <span class="quote-right">"</span>
-                </div>
-                <h2>Noticias</h2>
-                <div class="news-lines">
-                    <div class="news-line"></div>
-                    <div class="news-line short"></div>
-                    <div class="news-line"></div>
+            <h1 class="hero-title">
+                Bienvenidx a la <br class="br-narrow">mayor <br class="br-wide">comunidad universitaria
+                <span class="hero-last">
+                    <img class="hero-flecha" src="assets/hero-flecha.svg" alt="" width="67" height="62">
+                    de Aragón
+                    <img class="hero-smiley" src="assets/hero-smiley.svg" alt="" width="83" height="73">
+                </span>
+            </h1>
+
+            <p class="hero-lead">
+                Hecha por y para estudiantes.<br>
+                La comunidad universitaria de Aragón.<br>
+                Conecta, encuentra y disfruta.<br>
+                Todo lo que necesitas como estudiante.
+            </p>
+
+            <a class="hero-scroll" href="#bento" aria-label="Ir al contenido">
+                <img src="assets/hero-chevron.svg" alt="" width="38" height="38">
+            </a>
+
+            <img class="hero-deco hero-keys" src="assets/hero-keys.png" alt="">
+            <img class="hero-deco hero-wa" src="assets/hero-whatsapp.png" alt="">
+            <img class="hero-deco hero-bag" src="assets/maleta.png" alt="">
+        </header>
+
+        <div class="bento" id="bento">
+            <div class="fila-01">
+                <article class="card card-grupos" data-section="grupos">
+                    <div class="card-copy">
+                        <h2>GRUPOS</h2>
+                        <p class="subtitle">Carreras&nbsp;&nbsp;·&nbsp;&nbsp;Facultades&nbsp;&nbsp;·&nbsp;&nbsp;Compraventa</p>
+                        <a class="btn btn-on-red" href="#grupos">
+                            Entrar
+                            <img src="assets/arrow-red.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                    <img class="art art-whatsapp" src="assets/whatsapp.png" alt="">
+                </article>
+
+                <article class="card card-salseo" data-section="salseo">
+                    <div class="card-copy">
+                        <h2>SALSEO</h2>
+                        <p class="subtitle">Entérate de todo</p>
+                        <a class="btn btn-on-red" href="#salseo">
+                            Entrar
+                            <img src="assets/arrow-red.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="fila-02">
+                <article class="card card-pisos" data-section="pisos">
+                    <div class="card-copy">
+                        <p class="eyebrow">ENCUENTRA</p>
+                        <h2>PISOS</h2>
+                        <p class="subtitle">Habitaciones verificadas</p>
+                        <a class="btn btn-on-black" href="#pisos">
+                            Entrar
+                            <img src="assets/arrow-black.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                    <img class="art art-llaves" src="assets/llaves.png" alt="">
+                </article>
+
+                <article class="card card-viajes" data-section="viajes">
+                    <div class="card-copy">
+                        <div class="what-next" aria-hidden="true">
+                            <img src="assets/what-next.png" alt="">
+                        </div>
+                        <h2>VIAJES</h2>
+                        <p class="subtitle">Malta · Mexico · Interrail</p>
+                        <a class="btn btn-on-black" href="#viajes">
+                            Escápate
+                            <img src="assets/arrow-black.svg" alt="" width="22" height="22">
+                        </a>
+                    </div>
+                    <img class="art art-maleta" src="assets/maleta.png" alt="">
+                </article>
+
+                <div class="col-derecha">
+                    <div class="superior">
+                        <article class="card card-logo" data-section="home" aria-label="Project University">
+                            <img src="assets/logo-project.svg" alt="Project University">
+                        </article>
+
+                        <article class="card card-tablon" data-section="tablon">
+                            <div class="card-copy">
+                                <p class="eyebrow">ANUNCIOS</p>
+                                <h2>TABLÓN</h2>
+                                <p class="subtitle">Apuntes&nbsp;&nbsp;·&nbsp;Trabajo</p>
+                            </div>
+                            <a class="btn btn-on-red" href="#tablon">
+                                Entrar
+                                <img src="assets/arrow-red.svg" alt="" width="22" height="22">
+                            </a>
+                            <img class="art art-notas" src="assets/tablon-notas.png" alt="">
+                        </article>
+                    </div>
+
+                    <article class="card card-multi" data-section="multifuncion">
+                        <div class="multi-poster">
+                            <img src="assets/matricula.png" alt="Información matrícula Unizar PAU 2026">
+                        </div>
+                        <div class="multi-actions">
+                            <a class="btn btn-outline" href="#nosotros">
+                                Nosotros
+                                <img src="assets/arrow-white.svg" alt="" width="22" height="22">
+                            </a>
+                            <a class="btn btn-outline" href="#contacto">
+                                Contacto
+                                <img src="assets/arrow-white.svg" alt="" width="22" height="22">
+                            </a>
+                            <a class="btn btn-outline" href="#tiktok">
+                                Tik Tok
+                                <img src="assets/arrow-white.svg" alt="" width="22" height="22">
+                            </a>
+                            <a class="btn btn-outline" href="#instagram">
+                                Instagram
+                                <img src="assets/arrow-white.svg" alt="" width="22" height="22">
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
 
-        <!-- Fila 2: cuatro secciones pequeñas -->
-        <div class="grid-item red-box pisos" data-section="pisos">
-            <h2>Pisos</h2>
-            <div class="icon-pisos">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </div>
-
-        <div class="grid-item gray-box whatsapp" data-section="whatsapp">
-            <h2>Grupos de<br>WhatsApp</h2>
-            <svg class="icon-whatsapp" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 10 C 27.5 10 9 28.5 9 51 C 9 58.5 11 65.5 14.5 71.5 L 10 90 L 29.5 85.5 C 35 88.5 41.5 90 48.5 90 C 71 90 89.5 71.5 89.5 49 C 89.5 27 71 10 50 10 Z M 50 20 C 65.5 20 78.5 33 78.5 48.5 C 78.5 64 65.5 77 50 77 C 44.5 77 39.5 75.5 35 73 L 22 76 L 25 63.5 C 22 58.5 20 53 20 47 C 20 31.5 33 20 50 20 Z" fill="currentColor"/>
-                <circle cx="35" cy="45" r="2" fill="currentColor"/>
-                <path d="M 42 42 Q 45 38 48 42 L 55 50 Q 58 53 62 49" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
-
-        <div class="grid-item red-box descuentos" data-section="descuentos">
-            <h2>Descuentos</h2>
-            <div class="percent-icon">%</div>
-        </div>
-
-        <div class="grid-item red-box viajes" data-section="viajes">
-            <h2>Viajes</h2>
-            <svg class="icon-plane" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 85 30 L 50 45 L 20 35 L 15 40 L 35 50 L 25 65 L 15 63 L 12 67 L 22 72 L 27 82 L 31 79 L 29 69 L 44 59 L 54 79 L 59 74 L 49 44 L 64 9 Z" fill="white"/>
-            </svg>
-        </div>
-
-        <!-- Fila 3: dos secciones grandes -->
-        <div class="grid-item black-box puc" data-section="puc">
-            <h2 class="puc-text">PUC</h2>
-        </div>
-
-        <div class="grid-item gray-box not-found" data-section="404">
-            <h2 class="not-found-text">404<br><span>NOT FOUND</span></h2>
-        </div>
-    </div>
-
-    <div class="logo-badge">
-        <img src="logo.PNG" alt="Logo">
-    </div>
+        <footer class="site-footer">
+            <nav class="footer-links">
+                <a href="#cookies">Cookies</a>
+                <a href="#privacidad">Política de privacidad</a>
+                <a href="#aviso-legal">Aviso Legal</a>
+            </nav>
+            <p>© 2026 Project University. Todos los derechos reservados.</p>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>

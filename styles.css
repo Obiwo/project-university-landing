@@ -69,10 +69,26 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     overflow: hidden;
-    padding: 48px 24px 56px;
+    padding: 72px 24px 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: min(28vh, 280px);
+    background: linear-gradient(
+        180deg,
+        rgb(229 229 229 / 0%) 0%,
+        var(--bg) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-logo {
@@ -435,13 +451,16 @@ a {
 }
 
 .art-llaves {
-    width: 281px;
-    height: 499px;
-    left: 9px;
-    top: 243px;
-    object-fit: cover;
+    width: 260px;
+    height: 460px;
+    left: auto;
+    top: auto;
+    right: -118px;
+    bottom: -70px;
+    object-fit: contain;
+    max-width: none;
     transform: rotate(-11.4deg);
-    transform-origin: center top;
+    transform-origin: 100% 90%;
 }
 
 /* VIAJES */
@@ -815,9 +834,12 @@ a {
     .art-llaves {
         width: 184px;
         height: 328px;
-        left: 39px;
-        top: 157px;
+        left: auto;
+        top: auto;
+        right: -56px;
+        bottom: -58px;
         transform: rotate(-30deg);
+        transform-origin: 85% 90%;
     }
 
     .what-next {
@@ -1057,9 +1079,12 @@ a {
     .art-llaves {
         width: 89px;
         height: 156px;
-        left: 40px;
-        top: 108px;
+        left: auto;
+        top: auto;
+        right: -36px;
+        bottom: -36px;
         transform: rotate(-36deg);
+        transform-origin: 85% 90%;
     }
 
     .what-next {

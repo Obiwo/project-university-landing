@@ -217,7 +217,8 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
     .hero-deco,
-    .hero-scroll {
+    .hero-scroll,
+    .logo-corona {
         animation: none;
     }
 }
@@ -343,14 +344,14 @@ a {
 
 .btn-on-black:hover,
 .btn-on-black:focus-visible {
-    background: var(--black);
-    color: var(--red);
-    border-color: var(--red);
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--white);
 }
 
 .btn-on-black:hover img,
 .btn-on-black:focus-visible img {
-    filter: invert(16%) sepia(97%) saturate(7492%) hue-rotate(1deg) brightness(97%) contrast(118%);
+    filter: brightness(0) invert(1);
 }
 
 .btn-outline {
@@ -487,11 +488,24 @@ a {
     background: var(--black);
     color: var(--white);
     padding: 50px clamp(16px, 2.2vw, 32px) 0;
+    transform-origin: center center;
+    transition: background-color 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-pisos:hover,
+.card-pisos:focus-within {
+    background: var(--red);
 }
 
 .card-pisos .eyebrow {
     color: var(--red);
     font-size: 16px;
+    transition: color 0.5s ease;
+}
+
+.card-pisos:hover .eyebrow,
+.card-pisos:focus-within .eyebrow {
+    color: var(--white);
 }
 
 .card-pisos h2 {
@@ -530,6 +544,13 @@ a {
     background: var(--black);
     color: var(--white);
     padding: 50px clamp(16px, 2.2vw, 32px) 0;
+    transform-origin: center center;
+    transition: background-color 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-viajes:hover,
+.card-viajes:focus-within {
+    background: var(--red);
 }
 
 .what-next {
@@ -581,28 +602,17 @@ a {
     .card-salseo:hover,
     .card-salseo:focus-within,
     .card-tablon:hover,
-    .card-tablon:focus-within {
+    .card-tablon:focus-within,
+    .card-pisos:hover,
+    .card-pisos:focus-within,
+    .card-viajes:hover,
+    .card-viajes:focus-within {
         transform: scale(0.985);
-    }
-
-    .card-pisos:hover .art-llaves,
-    .card-pisos:focus-within .art-llaves {
-        transform: rotate(-18.9deg) translate(-3.24%, -16.29%);
-    }
-
-    .card-viajes:hover .art-maleta,
-    .card-viajes:focus-within .art-maleta {
-        transform: translateX(-35%) rotate(2.89deg) translateY(8%);
     }
 
     .card-tablon:hover .art-notas,
     .card-tablon:focus-within .art-notas {
         transform: scale(1.08) rotate(-6deg);
-    }
-
-    .card-logo:hover img,
-    .card-logo:focus-within img {
-        transform: scale(1.06) rotate(-8deg);
     }
 
     .multi-poster:hover img,
@@ -625,10 +635,27 @@ a {
     cursor: default;
 }
 
-.card-logo img {
+.logo-mark {
+    position: relative;
     width: 158px;
     height: 158px;
-    transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+    flex-shrink: 0;
+}
+
+.logo-mark img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-corona {
+    animation: logo-spin 14s linear infinite;
+}
+
+@keyframes logo-spin {
+    to { transform: rotate(360deg); }
 }
 
 /* TABLÓN */
@@ -971,23 +998,11 @@ a {
         transform: none;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        .card-pisos:hover .art-llaves,
-        .card-pisos:focus-within .art-llaves {
-            transform: rotate(-37.5deg) translate(-3.24%, -16.29%);
-        }
-
-        .card-viajes:hover .art-maleta,
-        .card-viajes:focus-within .art-maleta {
-            transform: rotate(2.89deg) translateY(8%);
-        }
-    }
-
     .card-logo {
         padding: 12px;
     }
 
-    .card-logo img {
+    .logo-mark {
         width: 130px;
         height: 130px;
     }
@@ -1255,18 +1270,11 @@ a {
         object-fit: contain;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        .card-pisos:hover .art-llaves,
-        .card-pisos:focus-within .art-llaves {
-            transform: rotate(-43.5deg) translate(-3.24%, -16.29%);
-        }
-    }
-
     .card-logo {
         padding: 9px;
     }
 
-    .card-logo img {
+    .logo-mark {
         width: 57px;
         height: 57px;
     }

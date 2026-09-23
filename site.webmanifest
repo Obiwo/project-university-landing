@@ -1,0 +1,17 @@
+{
+    "name": "Project University",
+    "short_name": "Project University",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#ff0100",
+    "theme_color": "#ff0100",
+    "icons": [
+        {
+            "src": "assets/fav-icon.png",
+            "sizes": "658x658",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

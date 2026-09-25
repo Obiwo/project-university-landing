@@ -1126,9 +1126,9 @@ a {
     }
 
     .hero-keys {
-        left: calc(8vw - 140px);
-        top: 6%;
-        width: clamp(160px, 20vw, 220px);
+        left: -10%;
+        top: -4%;
+        width: clamp(175px, 23vw, 220px);
     }
 
     .hero-wa {
@@ -1181,9 +1181,9 @@ a {
     }
 
     .hero-keys {
-        left: -18%;
-        top: 4%;
-        width: min(28vw, 118px);
+        left: -12%;
+        top: -2%;
+        width: min(36vw, 136px);
     }
 
     .hero-wa {

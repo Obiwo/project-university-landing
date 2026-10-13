@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes · Próximamente · Project University</title>
+    <link rel="icon" href="assets/fav-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/fav-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#ff0100">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page viajes-page">
+        <header class="legal-hero viajes-hero">
+            <a class="legal-logo" href="/">
+                <img src="assets/logo-white.png" alt="Project University" width="88" height="88">
+            </a>
+            <p class="legal-kicker">VIAJES</p>
+            <h1>PRÓXIMAMENTE</h1>
+            <p class="legal-lead">
+                La próxima escapada todavía está en pista. Salta maletas y conos,
+                esquiva pájaros y déjanos tu aviso para cuando haya fecha.
+            </p>
+            <a class="btn btn-on-red" href="/">
+                Volver
+                <img src="assets/arrow-red.svg" alt="" width="22" height="22">
+            </a>
+        </header>
+
+        <div class="legal-body viajes-body">
+            <section class="flight-card" aria-label="Viajes · Próximamente">
+                <div class="flight-top">
+                    <p class="pixel flight-label">Viajes · Próximamente</p>
+                    <div class="flight-meters">
+                        <p class="pixel"><span data-km>0.0</span> km</p>
+                        <p class="pixel flight-record">Récord <span data-record>0.0</span> km</p>
+                    </div>
+                </div>
+                <div class="flight-stage" id="flight-stage">
+                    <canvas id="flight" width="640" height="320" aria-hidden="true"></canvas>
+                    <div class="flight-overlay">
+                        <p class="pixel flight-boom" data-status hidden>Turbulencias</p>
+                        <p class="flight-scoreline" data-scoreline hidden></p>
+                        <p class="flight-hint" data-hint>Pulsa espacio o toca la pantalla para saltar</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="legal-panel viajes-wait">
+                <p class="eyebrow">LISTA DE ESPERA</p>
+                <h2>Cuando salgan, te avisamos</h2>
+                <p>
+                    Nombre, un WhatsApp o un email, tu universidad y el viaje que te llama.
+                    Así vemos la demanda de verdad antes de publicar fechas.
+                </p>
+                <button class="btn btn-on-black viajes-cta" type="button" id="open-waitlist">
+                    Avísame cuando salgan
+                    <img src="assets/arrow-black.svg" alt="" width="22" height="22">
+                </button>
+            </section>
+        </div>
+
+        <dialog class="waitlist-dialog" id="waitlist-dialog" aria-labelledby="waitlist-title">
+            <div class="waitlist-screen">
+                <header class="waitlist-bar">
+                    <p class="waitlist-bar-kicker">VIAJES</p>
+                    <button class="waitlist-close" type="button" data-close>Cerrar</button>
+                </header>
+                <div class="waitlist-screen-body">
+            <form class="waitlist-form" id="waitlist-form" novalidate>
+                <p class="eyebrow">AVISO</p>
+                <h2 id="waitlist-title">Avísame cuando salgan</h2>
+                <p class="waitlist-lead">Formulario corto. Solo para la lista de espera de viajes.</p>
+
+                <label class="field">
+                    <span>Nombre</span>
+                    <input name="nombre" type="text" autocomplete="name" required maxlength="80" placeholder="Tu nombre">
+                </label>
+                <label class="field">
+                    <span>WhatsApp o email</span>
+                    <input name="contacto" type="text" autocomplete="email" inputmode="email" required maxlength="120" placeholder="600 000 000 o tu@email.com">
+                </label>
+                <label class="field">
+                    <span>Universidad</span>
+                    <input name="universidad" type="text" autocomplete="organization" required maxlength="120" placeholder="Universidad de Zaragoza">
+                </label>
+
+                <fieldset class="field">
+                    <legend>Qué viaje te interesa</legend>
+                    <div class="trip-options">
+                        <label><input type="radio" name="tipo" value="nieve" required> Nieve</label>
+                        <label><input type="radio" name="tipo" value="playa"> Playa</label>
+                        <label><input type="radio" name="tipo" value="fin de curso"> Fin de curso</label>
+                        <label><input type="radio" name="tipo" value="internacional"> Internacional</label>
+                    </div>
+                </fieldset>
+
+                <label class="privacy-check">
+                    <input name="privacidad" type="checkbox" required>
+                    <span>Acepto la <a href="/#privacidad">política de privacidad</a> y que Project University guarde estos datos para avisarme.</span>
+                </label>
+
+                <p class="form-error" data-form-error hidden></p>
+
+                <button class="btn btn-on-black viajes-cta" type="submit">
+                    Apuntarme
+                    <img src="assets/arrow-black.svg" alt="" width="22" height="22">
+                </button>
+            </form>
+            <div class="waitlist-thanks" data-thanks hidden>
+                <p class="eyebrow">LISTA</p>
+                <h2>Estás dentro</h2>
+                <p>Te escribimos cuando haya fecha para ese viaje.</p>
+                <button class="btn btn-on-black viajes-cta" type="button" data-close>
+                    Cerrar
+                    <img src="assets/arrow-black.svg" alt="" width="22" height="22">
+                </button>
+            </div>
+                </div>
+            </div>
+        </dialog>
+
+        <footer class="site-footer">
+            <nav class="footer-links">
+                <a href="/cookies">Cookies</a>
+                <a href="/#privacidad">Política de privacidad</a>
+                <a href="/#aviso-legal">Aviso Legal</a>
+            </nav>
+            <p>© 2026 Project University. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+    <script src="viajes.js"></script>
+</body>
+</html>

@@ -1659,3 +1659,367 @@ a {
         margin-bottom: 4px;
     }
 }
+
+/* ========== VIAJES · PRÓXIMAMENTE ========== */
+.pixel {
+    font-family: "Press Start 2P", monospace;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.45;
+}
+
+.viajes-hero {
+    align-items: center;
+    text-align: center;
+}
+
+.viajes-hero h1,
+.viajes-hero .legal-lead {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.viajes-hero h1 {
+    font-family: "Press Start 2P", monospace;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: clamp(14px, 4.4vw, 40px);
+    line-height: 1.45;
+    max-width: 12em;
+}
+
+.viajes-body {
+    margin-top: 8px;
+}
+
+.flight-card {
+    background: var(--white);
+    color: var(--black);
+    border-radius: var(--radius);
+}
+
+.flight-card {
+    padding: clamp(16px, 2vw, 24px);
+}
+
+.flight-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.flight-label {
+    font-size: clamp(10px, 1.6vw, 13px);
+    max-width: 16em;
+}
+
+.flight-meters {
+    text-align: right;
+    font-size: clamp(10px, 1.5vw, 12px);
+}
+
+.flight-record {
+    margin-top: 8px;
+    color: var(--red);
+}
+
+.flight-stage {
+    position: relative;
+    height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--red);
+    touch-action: none;
+    cursor: pointer;
+}
+
+.flight-stage canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.flight-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+    pointer-events: none;
+    color: var(--white);
+}
+
+.flight-boom {
+    font-size: clamp(14px, 2.4vw, 22px);
+    text-shadow: 4px 4px 0 #000;
+}
+
+.flight-scoreline,
+.flight-hint {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 35%);
+    max-width: 18em;
+}
+
+.viajes-wait p {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.35;
+    max-width: 38em;
+}
+
+.viajes-cta {
+    margin-top: 22px;
+    cursor: pointer;
+    max-width: 100%;
+    height: auto;
+    min-height: 54px;
+    white-space: normal;
+    text-align: center;
+}
+
+.waitlist-dialog {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--bg);
+    color: var(--black);
+    overflow: auto;
+}
+
+.waitlist-dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.waitlist-dialog::backdrop {
+    background: var(--bg);
+}
+
+.waitlist-screen {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.waitlist-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--red);
+    color: var(--white);
+    padding: 20px clamp(20px, 5vw, 72px);
+}
+
+.waitlist-bar-kicker {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+}
+
+.waitlist-screen-body {
+    width: min(720px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: clamp(28px, 5vh, 56px) 0 48px;
+}
+
+.waitlist-form .eyebrow,
+.waitlist-thanks .eyebrow {
+    color: var(--red);
+    font-size: 14px;
+}
+
+.waitlist-dialog h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.08em;
+    line-height: 0.95;
+    margin-top: 6px;
+}
+
+.waitlist-lead,
+.waitlist-thanks p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.35;
+}
+
+.waitlist-close {
+    height: 42px;
+    padding: 0 18px;
+    border: 2px solid var(--white);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--red);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    cursor: pointer;
+}
+
+.waitlist-close:hover,
+.waitlist-close:focus-visible {
+    background: var(--black);
+    color: var(--red);
+    border-color: var(--red);
+}
+
+.waitlist-form,
+.waitlist-thanks {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.field span,
+.field legend {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.field input[type="text"] {
+    width: 100%;
+    height: 48px;
+    border: 2px solid var(--black);
+    border-radius: 14px;
+    padding: 0 14px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    background: var(--white);
+}
+
+.field input[type="text"]:focus {
+    outline: 3px solid var(--red);
+    border-color: var(--red);
+}
+
+.trip-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.trip-options label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 8px 10px;
+    border: 2px solid var(--black);
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.trip-options input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+}
+
+.trip-options label:has(input:checked) {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+}
+
+.trip-options label:has(input:focus-visible) {
+    outline: 3px solid var(--black);
+    outline-offset: 2px;
+}
+
+.privacy-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.35;
+}
+
+.privacy-check input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--red);
+    flex-shrink: 0;
+}
+
+.privacy-check a {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.form-error {
+    margin-top: 12px;
+    color: var(--red);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.waitlist-thanks .btn {
+    align-self: flex-start;
+}
+
+@media (max-width: 700px) {
+    .flight-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flight-meters {
+        text-align: left;
+    }
+
+    .flight-stage {
+        height: 240px;
+    }
+
+    .viajes-wait p {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra Pisos · Project University</title>
+    <link rel="icon" href="assets/fav-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/fav-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#ff0100">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page pisos-page">
+        <header class="legal-hero pisos-hero">
+            <a class="legal-logo" href="/">
+                <img src="assets/logo-white.png" alt="Project University" width="88" height="88">
+            </a>
+            <h1>Encuentra Pisos</h1>
+            <p class="legal-lead">
+                Habitaciones verificadas cerca de la uni. Pisos compartidos y residencias,
+                con alguien al otro lado de WhatsApp.
+            </p>
+            <a class="btn btn-on-red" href="/">
+                Volver
+                <img src="assets/arrow-red.svg" alt="" width="22" height="22">
+            </a>
+        </header>
+
+        <div class="legal-body pisos-body">
+            <div class="mode-switch" role="group" aria-label="Tipo de alojamiento">
+                <button type="button" data-type="piso" aria-pressed="true">Pisos</button>
+                <button type="button" data-type="residencia" aria-pressed="false">Residencias</button>
+            </div>
+
+            <div class="pisos-filters">
+                <label class="price-field">
+                    <span>Precio desde</span>
+                    <input id="price-min" type="number" inputmode="numeric" min="0" step="10" placeholder="0 €">
+                </label>
+                <label class="price-field">
+                    <span>Precio hasta</span>
+                    <input id="price-max" type="number" inputmode="numeric" min="0" step="10" placeholder="800 €">
+                </label>
+                <div class="sort-switch" role="group" aria-label="Ordenar por">
+                    <button type="button" data-sort="precio" aria-pressed="true">Precio</button>
+                    <button type="button" data-sort="companeros" aria-pressed="false">Compañeros</button>
+                </div>
+                <button class="btn btn-solid pisos-publish" type="button" id="open-publish">Publicar</button>
+            </div>
+
+            <section class="cerca" aria-labelledby="cerca-title">
+                <h2 id="cerca-title">Cerca de...</h2>
+                <div class="zone-row" id="zones"></div>
+            </section>
+
+            <p class="piso-count" id="piso-count" aria-live="polite"></p>
+            <div class="piso-list" id="piso-list"></div>
+        </div>
+
+        <dialog class="pisos-dialog" id="publish-dialog" aria-labelledby="publish-title">
+            <div class="pisos-sheet">
+                <header class="pisos-sheet-bar">
+                    <p>PUBLICAR</p>
+                    <button class="pisos-sheet-close" type="button" data-close>Cerrar</button>
+                </header>
+                <div class="pisos-sheet-body">
+                    <form class="pisos-form" id="publish-form" novalidate>
+                        <p class="eyebrow">TU OFERTA</p>
+                        <h2 id="publish-title">Publica un piso</h2>
+                        <p class="pisos-form-lead">Sale en el listado de esta comunidad. El destacado de la página se queda fijo.</p>
+
+                        <label class="field">
+                            <span>Título</span>
+                            <input name="titulo" type="text" required maxlength="80" placeholder="Habitación luminosa en el centro">
+                        </label>
+                        <label class="field">
+                            <span>Zona</span>
+                            <select name="zona" required></select>
+                        </label>
+                        <div class="pisos-form-row">
+                            <label class="field">
+                                <span>Precio al mes</span>
+                                <input name="precio" type="number" inputmode="numeric" min="1" max="5000" required placeholder="320">
+                            </label>
+                            <label class="field">
+                                <span>Compañeros</span>
+                                <input name="companeros" type="number" inputmode="numeric" min="0" max="12" required placeholder="2">
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span>WhatsApp</span>
+                            <input name="whatsapp" type="tel" inputmode="tel" required maxlength="20" placeholder="600 000 000">
+                        </label>
+                        <p class="form-error" data-form-error hidden></p>
+                        <button class="btn btn-solid pisos-publish" type="submit">Publicar</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+        <footer class="site-footer">
+            <nav class="footer-links">
+                <a href="/cookies">Cookies</a>
+                <a href="/#privacidad">Política de privacidad</a>
+                <a href="/#aviso-legal">Aviso Legal</a>
+            </nav>
+            <p>© 2026 Project University. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+    <script src="pisos.js"></script>
+</body>
+</html>

@@ -2278,9 +2278,13 @@ a {
     letter-spacing: -0.04em;
 }
 
-.piso-feature .wa-btn {
-    margin-top: auto;
-    padding-top: 22px;
+.piso-feature .wa-btn,
+.piso-feature .wa-btn:hover,
+.piso-feature .wa-btn:focus-visible {
+    margin-top: 40px;
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--black);
 }
 
 .piso-feature-price {

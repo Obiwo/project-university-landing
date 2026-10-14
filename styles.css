@@ -2217,6 +2217,10 @@ a {
     gap: var(--gap);
 }
 
+.pisos-alerts {
+    margin-top: 8px;
+}
+
 .piso-feature {
     display: grid;
     grid-template-columns: minmax(240px, 0.95fr) minmax(0, 1.15fr);

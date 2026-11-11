@@ -747,8 +747,12 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 28%;
+    object-position: center;
     transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.multi-poster .multi-fallback {
+    object-position: center 28%;
 }
 
 .multi-poster {
@@ -759,8 +763,12 @@ a {
     display: block;
 }
 
-.multi-poster.has-photo .multi-fallback {
+.multi-poster.has-slides .multi-fallback {
     opacity: 0;
+}
+
+.multi-slide.is-default img {
+    object-position: center;
 }
 
 .multi-slide {
@@ -780,10 +788,6 @@ a {
 .multi-slide.is-active {
     opacity: 1;
     pointer-events: auto;
-}
-
-.multi-slide.is-plain {
-    background: transparent;
 }
 
 .multi-slide-copy {

@@ -1,10 +1,12 @@
 // Carrusel del bloque multifunción. Lee las tarjetas del panel y las noticias
-// marcadas como destacadas. Si no hay ninguna visible, se queda la imagen de matrícula.
+// marcadas como destacadas. Si una tarjeta no trae imagen, usa el póster genérico.
+// Si no hay ninguna visible, se queda la imagen de matrícula.
 ;(function () {
     var poster = document.getElementById("multi-poster");
     if (!poster || !window.firebase) return;
 
     var KIND = { noticia: "Noticia", evento: "Evento", grupo: "Grupo", campana: "Campaña" };
+    var DEFAULT_IMAGE = "assets/destacado-default.svg";
 
     firebase.initializeApp({
         apiKey: "AIzaSyDdM2Y3FrkKxkXppk7SmUAWWmOV5aay8fo",
@@ -159,7 +161,6 @@
         if (!slides.length) return;
 
         poster.classList.add("has-slides");
-        if (slides.some(function (slide) { return slide.image; })) poster.classList.add("has-photo");
         poster.setAttribute("aria-roledescription", "carrusel");
         poster.setAttribute("aria-label", "Destacados");
         var fallback = poster.querySelector(".multi-fallback");
@@ -174,14 +175,11 @@
                 el.rel = "noopener noreferrer";
             }
             el.setAttribute("aria-hidden", index === 0 ? "false" : "true");
-            if (slide.image) {
-                var img = document.createElement("img");
-                img.src = slide.image;
-                img.alt = "";
-                el.appendChild(img);
-            } else {
-                el.classList.add("is-plain");
-            }
+            var img = document.createElement("img");
+            img.src = slide.image || DEFAULT_IMAGE;
+            img.alt = "";
+            if (!slide.image) el.classList.add("is-default");
+            el.appendChild(img);
             var copy = document.createElement("span");
             copy.className = "multi-slide-copy";
             copy.innerHTML =

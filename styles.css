@@ -751,6 +751,96 @@ a {
     transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
+.multi-poster {
+    position: relative;
+}
+
+.multi-fallback {
+    display: block;
+}
+
+.multi-poster.has-photo .multi-fallback {
+    opacity: 0;
+}
+
+.multi-slide {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    color: var(--white);
+    text-decoration: none;
+    background: var(--red);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+
+.multi-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.multi-slide.is-plain {
+    background: transparent;
+}
+
+.multi-slide-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 22px 10px 8px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+}
+
+.multi-kicker {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.multi-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: clamp(11px, 1.15vw, 16px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.multi-dots {
+    position: absolute;
+    z-index: 2;
+    top: 8px;
+    left: 8px;
+    display: flex;
+    gap: 4px;
+}
+
+.multi-dots button {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border: 0;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+}
+
+.multi-dots button[aria-current="true"] {
+    width: 14px;
+    background: var(--white);
+}
+
 .multi-actions {
     display: flex;
     flex-direction: column;
@@ -1355,6 +1445,19 @@ a {
         height: 108px;
         align-self: center;
         border-radius: 16px;
+    }
+
+    .multi-kicker {
+        display: none;
+    }
+
+    .multi-title {
+        font-size: 10px;
+        -webkit-line-clamp: 2;
+    }
+
+    .multi-slide-copy {
+        padding: 14px 6px 6px;
     }
 
     .multi-actions {
